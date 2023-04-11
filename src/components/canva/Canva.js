@@ -17,11 +17,17 @@ function Canva() {
         const context = canvas.getContext('2d');
         const width = window.innerWidth;
         const height = window.innerHeight;
-    
-    
-    
+            
+       
+
         canvas.width =  window.innerWidth * 0.7;
         canvas.height = window.innerHeight * 0.7;
+        
+        context.font = '24px Bebas Neue, cursive';
+        context.fillStyle = 'black';
+        context.textAlign = 'center';
+        context.fillText('Collaborative  Canvas', canvas.width/2, 50);
+        
         
         // Socket IO
         const socketClient = io("http://localhost:3000/");
