@@ -36,7 +36,6 @@ function Canva() {
             mouse.click = false;
         })
     
-        
         canvas.addEventListener('mousemove', (e) => { // cuando mueve el mouse
             mouse.pos.x = e.clientX / width;
             mouse.pos.y = e.clientY / height;
