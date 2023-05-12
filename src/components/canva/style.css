@@ -11,12 +11,22 @@ body, html {
 }
 
 canvas {
-    display: inline-block;
-    background-color: #FFFFF7;
+
+    background-color: #ffffff;
     width: 200;
     height: 300;
+    display: flex;
+    /*:(*/    /*margin-right: 50%;*/ 
 
 }
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    direction: left;
+    margin-right: 20%;
+}
+
 nav {
     background-color: white;
 }
@@ -46,3 +56,6 @@ nav {
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+
+  

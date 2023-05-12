@@ -1,4 +1,5 @@
 import { Canva } from "./components/canva/Canva"
+import { Note } from "./components/note/Note"
 
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
        
       <Canva />
+      <Note />
     </div>
   );
 }

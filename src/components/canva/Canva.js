@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import io from 'socket.io-client';
 import "./style.css"
 
+
+
 function Canva() {
 
     useEffect(() => {
@@ -17,9 +19,7 @@ function Canva() {
         const context = canvas.getContext('2d');
         const width = window.innerWidth;
         const height = window.innerHeight;
-            
        
-
         canvas.width =  window.innerWidth * 0.7;
         canvas.height = window.innerHeight * 0.7;
         
@@ -73,7 +73,7 @@ function Canva() {
         mainLoop();
     },[]);
 
-    return <canvas id="drawing"> </canvas>;
+    return<div className="canvas-container"><canvas id="drawing"> </canvas></div>;
 }
 
 export { Canva };
