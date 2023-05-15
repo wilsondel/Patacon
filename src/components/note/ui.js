@@ -12,14 +12,15 @@ let savedId = "";
 
 const noteUI = note => {
     const div = document.createElement('div')
-    div.innerHTML = `
-        <div>
+    div.innerHTML = ` 
+        <div class="note">
             <h1>${note.title}</h1>
-            <div>
-                <button class="delete" data-id="${note._id}"> Delete </button>
-                <button class="update" data-id="${note._id}"> Update </button>
+            <div class="noteDescription">${note.description}</div>
+            <div class ="icon">
+                <span class="material-symbols-outlined update" data-id="${note._id}" > edit</span>
+                <span class="material-symbols-outlined delete" data-id="${note._id}" >delete</span>
             </div>
-            <p>${note.description}</p>
+            
         </div>
     `
     const btnDelete = div.querySelector('.delete');
@@ -31,6 +32,7 @@ const noteUI = note => {
     return div
 } 
 
+//const [searchText,setSearchText] = useState('');
 
 export const renderNotes = notes => {
     notesList.innerHTML="";

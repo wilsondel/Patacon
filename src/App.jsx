@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Canva } from "./components/canva/Canva"
 import { Note } from "./components/note/Note"
+import { Search } from "./components/search/Search"
 
 import { useMsal, useMsalAuthentication } from '@azure/msal-react';
 import { InteractionType } from '@azure/msal-browser';
@@ -43,9 +44,10 @@ function App() {
   return (
     <div className="App">
       <div>User: {m_strUser}</div>
-      <SignOutButton />
-      <Note />
-      <Canva />
+      <Search />
+      <Note /><br/>
+      <Canva /><br/>
+      <SignOutButton /><br/>
     </div>
   );
   else

@@ -1,3 +1,103 @@
-h1 {
-    background-color: rgb(252, 250, 228);
+
+
+.note{
+    background-color: #FEFAB9;
+    /*#5acfc2*/
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 170px; 
+   
+    
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+.material-symbols-outlined:hover {
+    cursor: pointer;
+  }
+  
+#notes {
+    background-color: black;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+}
+
+
+.container {
+    max-width: 1500px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15 px;
+    padding-right: 15 px;
+
+}
+
+
+/* CSS */
+button {
+  align-items: center;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #422800;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:after {
+  background-color: #422800;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+button:hover:after {
+  transform: translate(0, 0);
+}
+
+button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0 40px;
+  }
 }

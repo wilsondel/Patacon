@@ -20,10 +20,10 @@ function Canva() {
             
        
 
-        canvas.width =  window.innerWidth * 0.7;
-        canvas.height = window.innerHeight * 0.7;
+        canvas.width =  window.innerWidth * 0.6;
+        canvas.height = window.innerHeight * 0.6;
         
-        context.font = '24px Bebas Neue, cursive';
+        context.font = '50px Bebas Neue, sans-serif';
         context.fillStyle = 'black';
         context.textAlign = 'center';
         context.fillText('Collaborative  Canvas', canvas.width/2, 50);
