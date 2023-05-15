@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import io from 'socket.io-client';
 import "./style.css"
 
 import {loadNotes, onNewNote, onSelected} from './socket.js';

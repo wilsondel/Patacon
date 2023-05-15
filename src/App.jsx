@@ -23,10 +23,27 @@ function App() {
     }
   }
 
+  const handleSignOut = (instance) => {
+    instance.logoutRedirect({
+      postLogoutRedirectUri: 'http://localhost:3001/login.html'
+    });
+
+  }
+
+  const SignOutButton = () => {
+    const { instance } = useMsal();
+    return (
+      <button onClick={()=>handleSignOut(instance)}>Sign out</button>
+
+    )
+
+  }
+
   if (m_strUser !== "")
   return (
     <div className="App">
       <div>User: {m_strUser}</div>
+      <SignOutButton />
       <Note />
       <Canva />
     </div>
