@@ -5,9 +5,48 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+
 }
+
+.canvasContainer {
+  grid-area: canvas;
+  
+  /*background-color: greenyellow;*/
+  /* width: 1000px;
+  height: 1000px; */
+ 
+}
+
+.mainHome {
+  grid-area: mainHome;
+  background-color: white;
+}
+
+.mainNote{
+  grid-area: mainNote;
+  background-color: #CADBE3; 
+  
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'canvas canvas mainHome'
+    'canvas canvas mainNote'
+    'canvas canvas mainNote';
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4%;
+  height: 100vh;
+  padding: 1% 1%;
+}
+
+
+

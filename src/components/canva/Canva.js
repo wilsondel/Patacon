@@ -20,13 +20,13 @@ function Canva() {
             
        
 
-        canvas.width =  window.innerWidth * 0.6;
-        canvas.height = window.innerHeight * 0.6;
+        canvas.width =  canvas.parentNode.clientWidth;
+        canvas.height = canvas.parentNode.clientHeight;
         
         context.font = '50px Bebas Neue, sans-serif';
         context.fillStyle = 'black';
         context.textAlign = 'center';
-        context.fillText('Collaborative  Canvas', canvas.width/2, 50);
+        context.fillText('Canvas', canvas.width/2, 50);
         
         
         // Socket IO
@@ -72,7 +72,15 @@ function Canva() {
         mainLoop();
     },[]);
 
-    return <canvas id="drawing"> </canvas>;
+    return(
+    <div className='grid-container'> 
+        <div className="canvasContainer"> 
+            <canvas id="drawing" className="canvas"></canvas> 
+        </div> 
+        <div className="mainHome">Test Home</div> 
+        <div className="mainNote"><h1>Personal Canva</h1></div>
+    </div>  
+    );
 }
 
 export { Canva };

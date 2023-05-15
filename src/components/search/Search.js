@@ -7,7 +7,7 @@ const Search = () =>{
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleClick = ()  => {
-
+ 
         const notesList = document.querySelector('#notes');
         if (String(notesList.innerHTML).includes(searchTerm)) {
             Swal.fire(

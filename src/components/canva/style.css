@@ -13,9 +13,7 @@ body, html {
 canvas {
     display: inline-block;
     background-color: #FFFFF7;
-    width: 200;
-    height: 300;
-
+ 
 }
 nav {
     background-color: white;

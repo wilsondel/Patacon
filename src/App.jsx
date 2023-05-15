@@ -43,10 +43,10 @@ function App() {
   if (m_strUser !== "")
   return (
     <div className="App">
-      <div>User: {m_strUser}</div>
+      {/* <div>User: {m_strUser}</div> */}
       <Search />
       <Note /><br/>
-      <Canva /><br/>
+      <Canva user={m_strUser}/><br/>
       <SignOutButton /><br/>
     </div>
   );

@@ -5,9 +5,10 @@
     /*#5acfc2*/
     margin-bottom: 10px;
     border-radius: 10px;
-    padding: 1rem;
-    min-height: 170px; 
-   
+    /*padding: 1rem;*/
+    min-height: 150px; 
+    padding: 1% 1%;
+    
     
 }
 
@@ -26,10 +27,10 @@
   }
   
 #notes {
-    background-color: black;
+    /* background-color: black; */
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+    grid-gap: 4rem;
+    grid-template-columns: repeat(3, minmax(200px, 250px));
 }
 
 
@@ -39,8 +40,12 @@
     margin-left: auto;
     padding-left: 15 px;
     padding-right: 15 px;
+    position: absolute;
+    top: 15%;
+
 
 }
+
 
 
 /* CSS */
