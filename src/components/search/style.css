@@ -1,9 +1,12 @@
 .search {
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     background-color: white;
     border-radius: 15px;
     padding-bottom: 1.5em;
+    grid-area: header;
+    width: 50%;
+    height: 10%;
   }
 
 .search input {
