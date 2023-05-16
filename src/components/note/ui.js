@@ -14,7 +14,10 @@ const noteUI = note => {
     const div = document.createElement('div')
     div.innerHTML = ` 
         <div class="note">
-            <h1>${note.title}</h1>
+            <div class="title-note">
+                <h1>${note.title}</h1>
+                <span id= "heart" class="material-symbols-outlined">favorite</span>
+            </div>
             <div class="noteDescription">${note.description}</div>
             <div class ="icon">
                 <span class="material-symbols-outlined update" data-id="${note._id}" > edit</span>
@@ -25,9 +28,11 @@ const noteUI = note => {
     `
     const btnDelete = div.querySelector('.delete');
     const btnUpdate = div.querySelector('.update');
+    const btnHeart = div.querySelector('#heart');
     
     btnDelete.addEventListener('click', e => deleteNote(btnDelete.dataset.id))
     btnUpdate.addEventListener('click', e => getNoteById(btnUpdate.dataset.id))
+    btnHeart.addEventListener('click', e => btnHeart.style.color = 'red')
     
     return div
 } 

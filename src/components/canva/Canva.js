@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import io from 'socket.io-client';
 import "./style.css"
 import { Search } from "../search/Search"
+import { PersonalCanva } from "../personalCanva/PersonalCanva"
 import { Link } from 'react-router-dom';
 
 
@@ -114,19 +115,26 @@ function Canva(props) {
         <br/>
         <h2> Life-Board </h2>
             
-            <button class="home-button" onClick={handleClickDraw}>
-                <span class="material-symbols-outlined icons">brush</span>
-                <span class="button-text">Draw</span>
+            <button className="home-button" onClick={handleClickDraw}>
+            
+                <span className="material-symbols-outlined icons">brush</span>
+                <span className="button-text">Draw</span>
+
             </button>
-            <button class="home-button" onClick={handleClickErase} >
-                <span class="material-symbols-outlined icons">backspace</span>
-                <span class="button-text-Errase">Erase</span></button>
+            <button className="home-button" onClick={handleClickErase} >
+                
+                <span className="material-symbols-outlined icons">backspace</span>
+                <span className="button-text-Errase">Erase</span></button>
             <br/>
-            <div class="buttonAccount"><span class="material-symbols-outlined">account_circle</span>{props.user}</div> 
+            <div className="buttonAccount"><span className="material-symbols-outlined">account_circle</span>{props.user}</div> 
         </div> 
         
         <div className="mainNote">
-            <h2><br/><Link to="/personal" ><span class="material-symbols-outlined">swap_horiz</span>  Personal Canva </Link></h2></div>
+            <h2><br/><Link to="/personal" ><span className="material-symbols-outlined">swap_horiz</span>  Personal Canva </Link></h2>
+            <div className='myPersonalNotes'></div>
+            <PersonalCanva />
+            
+        </div>
         </div>  
     );
 }
