@@ -45,7 +45,16 @@ nav {
     
     font-family: 'Playfair Display', serif;
     fill: black;
+    
+      
 }
+
+.mainNote a {
+    text-decoration: none; 
+    color: black;
+}
+
+
 
 .mainHome {
     text-align: center;
@@ -59,20 +68,38 @@ h2 {
 }
 
 .home-button {
-   
+
     background-color: #FFFFF7;
-    
-    /*border: none;*/
+    border: none;
     cursor: pointer;
     font-family: 'Fira Code', monospace;
     font-size:16px;
     border-radius:5px;
-    padding: 38px 18px;
+    padding: 34px 14px;
     text-align: center;
     margin:auto;
     margin-top: 20px;
     width: 95%;
-    
+    border-bottom: 2px solid burlywood;
+    position: space-between;
+}
+
+.icons {
+    margin-right: 50px;
+}
+
+  
+
+
+/*.button-text-Errase {
+    text-align: center;
+    margin-left: auto;
+   
+}*/
+
+
+.home-button:hover {
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .material-symbols-outlined {
@@ -97,5 +124,12 @@ h2 {
     text-align: center;
     margin:auto;
     width: 90%;
+    border-bottom: 2px solid burlywood; 
+    
    
   }
+  .buttonAccount:hover {
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
+  }
+

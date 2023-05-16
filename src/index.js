@@ -7,7 +7,7 @@ import { PublicClientApplication } from '@azure/msal-browser';
 import { msalConfig } from './auth/authConfig';
 import { MsalProvider } from '@azure/msal-react';
 
-// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 
 const msalInstance = new PublicClientApplication(msalConfig);
@@ -16,9 +16,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
      <MsalProvider instance={msalInstance}>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <App />
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </MsalProvider>
   </React.StrictMode>
 );

@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import io from 'socket.io-client';
 import "./style.css"
 import { Search } from "../search/Search"
+import { Link } from 'react-router-dom';
 
 
 function Canva(props) {
@@ -28,10 +29,10 @@ function Canva(props) {
         canvas.width =  canvas.parentNode.clientWidth;
         canvas.height = canvas.parentNode.clientHeight;
         
-        context.font = '50px Bebas Neue, sans-serif';
+        context.font = '50px Playfair Display, serif';
         context.fillStyle = 'black';
         context.textAlign = 'center';
-        context.fillText('Canvas', canvas.width/2, 50);
+        context.fillText('CANVAS', canvas.width/2, 50);
         
         
         // Socket IO
@@ -113,14 +114,20 @@ function Canva(props) {
         <br/>
         <h2> Life-Board </h2>
             
-            <button class="home-button" onClick={handleClickDraw}><span class="material-symbols-outlined">brush</span>Draw</button>
-            <button class="home-button" onClick={handleClickErase} ><span class="material-symbols-outlined">backspace</span>Erase</button>
+            <button class="home-button" onClick={handleClickDraw}>
+                <span class="material-symbols-outlined icons">brush</span>
+                <span class="button-text">Draw</span>
+            </button>
+            <button class="home-button" onClick={handleClickErase} >
+                <span class="material-symbols-outlined icons">backspace</span>
+                <span class="button-text-Errase">Erase</span></button>
             <br/>
             <div class="buttonAccount"><span class="material-symbols-outlined">account_circle</span>{props.user}</div> 
         </div> 
         
-        <div className="mainNote"><h2><br/>Personal Canva</h2></div>
-    </div>  
+        <div className="mainNote">
+            <h2><br/><Link to="/personal" ><span class="material-symbols-outlined">swap_horiz</span>  Personal Canva </Link></h2></div>
+        </div>  
     );
 }
 
