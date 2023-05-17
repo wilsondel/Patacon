@@ -29,7 +29,7 @@ function App() {
 
   const handleSignOut = (instance) => {
     instance.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:3001/login.html'
+      postLogoutRedirectUri: 'https://patacon-ten.vercel.app/login.html'
     });
 
   }
