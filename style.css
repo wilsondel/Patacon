@@ -1,0 +1,29 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-form {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+  }
+  
+
+  .submit1{
+    border-radius: 15%;      
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid lightgrey; /* Borde solo en la parte inferior */
+    margin-top: 10px; /* Espacio de 10px por encima del borde inferior */
+    
+  }
+
+
+  

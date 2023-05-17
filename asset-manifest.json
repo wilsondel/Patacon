@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Patacon/static/css/main.55e45b44.css",
+    "main.js": "/Patacon/static/js/main.213eb096.js",
+    "index.html": "/Patacon/index.html",
+    "main.55e45b44.css.map": "/Patacon/static/css/main.55e45b44.css.map",
+    "main.213eb096.js.map": "/Patacon/static/js/main.213eb096.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55e45b44.css",
+    "static/js/main.213eb096.js"
+  ]
+}
