@@ -36,7 +36,7 @@ function Canva(props) {
         
         
         // Socket IO
-        const socketClient = io("http://localhost:3000/");
+        const socketClient = io("http://98.71.252.55:3000/");
     
     
     
