@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Canva } from "./components/canva/Canva"
 import { Note } from "./components/note/Note"
-import { Note as personalNote } from "./components/personalNote/Note"
-import { Board } from "./components/board/Board"
-import { Search } from "./components/search/Search"
+
+import { Board } from "./components/board/Board";
 
 import { useMsal, useMsalAuthentication } from '@azure/msal-react';
 import { InteractionType } from '@azure/msal-browser';
@@ -48,13 +47,8 @@ function App() {
   return (
     <div className="App">
       
-        {/* <Note /><br/>
-        <Canva user={m_strUser}/><br/> */}
-      
-
         <Routes>
           <Route path="/" element={<Board m_strUser={m_strUser}/>} />
-          <Route path="/personal" element={<personalNote />} />
         </Routes>
         <SignOutButton /><br/>
         

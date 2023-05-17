@@ -30,12 +30,56 @@ const noteUI = note => {
     const btnUpdate = div.querySelector('.update');
     const btnHeart = div.querySelector('#heart');
     
+    
+    
     btnDelete.addEventListener('click', e => deleteNote(btnDelete.dataset.id))
     btnUpdate.addEventListener('click', e => getNoteById(btnUpdate.dataset.id))
     btnHeart.addEventListener('click', e => btnHeart.style.color = 'red')
     
+    const noteMove = div.querySelector('.note');
+
+    noteMove.onclick= function(event) {
+        // (1) preparar para mover: hacerlo absoluto y ponerlo sobre todo con el z-index
+        noteMove.style.position = 'absolute';
+        noteMove.style.zIndex = 1000;
+      
+        // quitar cualquier padre actual y moverlo directamente a body
+        // para posicionarlo relativo al body
+        document.body.append(noteMove);
+      
+        // centrar la pelota en las coordenadas (pageX, pageY)
+        function moveAt(pageX, pageY) {
+          noteMove.style.left = pageX - noteMove.offsetWidth / 2 + 'px';
+          noteMove.style.top = pageY - noteMove.offsetHeight / 2 + 'px';
+        }
+      
+        // mover nuestra pelota posicionada absolutamente bajo el puntero
+        moveAt(event.pageX, event.pageY);
+      
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+        }
+      
+        // (2) mover la pelota con mousemove
+        document.addEventListener('mousemove', onMouseMove);
+      
+        // (3) soltar la pelota, quitar cualquier manejador de eventos innecesario
+        noteMove.onmouseup = function() {
+          document.removeEventListener('mousemove', onMouseMove);
+          noteMove.onmouseup = null;
+        };
+      
+      };
+
+
+      noteMove.ondragstart = function() {
+        return false;
+      };
+
     return div
 } 
+
+
 
 //const [searchText,setSearchText] = useState('');
 

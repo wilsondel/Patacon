@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react';
 import io from 'socket.io-client';
 import "./style.css"
 import { Search } from "../search/Search"
-import { PersonalCanva } from "../personalCanva/PersonalCanva"
 import { Link } from 'react-router-dom';
 
 
@@ -106,7 +105,6 @@ function Canva(props) {
 
     return(
     <div className='grid-container'>
-         
         <Search />
         <div className="canvasContainer"> 
             <canvas id="drawing" className="canvas"></canvas> 
@@ -130,9 +128,8 @@ function Canva(props) {
         </div> 
         
         <div className="mainNote">
-            <h2><br/><Link to="/personal" ><span className="material-symbols-outlined">swap_horiz</span>  Personal Canva </Link></h2>
+            <h2>My Notes </h2>
             <div className='myPersonalNotes'></div>
-            <PersonalCanva />
             
         </div>
         </div>  
