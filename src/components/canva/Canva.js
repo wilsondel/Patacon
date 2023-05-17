@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import io from 'socket.io-client';
 import "./style.css"
 import { Search } from "../search/Search"
-import { Link } from 'react-router-dom';
+
 
 
 function Canva(props) {
@@ -66,7 +66,7 @@ function Canva(props) {
 
 
         socketClient.on('erase_line', data => {
-            const line = data.line;
+            
             context.beginPath();
             context.lineWith = 2; //ancho linea
             const canvasWidth = canvas.width;
