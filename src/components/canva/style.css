@@ -13,32 +13,11 @@ body, html {
 canvas {
     display: inline-block;
     background-color: #FFFFF7;
-    width: 100%;
-    height: 100%;
-
+ 
 }
 nav {
     background-color: white;
 }
-
-/*grid*/
-
-.main_header{ grid-area: header;}
-.menu { grid-area: menu; }
-.CanvaC { grid-area: CanvaCollaborative; }
-.CanvaPersonal { grid-area: CanvaPersonal; 
-                background-color: black;}
-
-.Collaboration_Container {
-    display: grid;
-    grid-template-areas:
-      'header header header header header header'
-      'menu CanvaC CanvaC CanvaC CanvaC CanvaC'
-      'CanvaPersonal  CanvaC CanvaC CanvaC CanvaC CanvaC';
-    gap: 10px;
-    padding: 10px;
-}
-
 
 
 
@@ -54,6 +33,94 @@ nav {
     transition-duration: 0.4s;
 }
 
+
+.grid-container{
+    margin-top: 0%;
+}
+
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+.mainNote{
+    text-align: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    fill: black;
+    
+      
+}
+
+.mainNote a {
+    text-decoration: none; 
+    color: black;
+}
+
+
+
+.mainHome {
+    text-align: center;
+    align-items: center;
+}
+
+h2 {
+    
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+}
+
+.home-button {
+
+    background-color: #FFFFF7;
+    border: none;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size:16px;
+    border-radius:5px;
+    padding: 20px 12px;
+    text-align: center;
+    margin:auto;
+    margin-top: 10px;
+    width: 95%;
+    border-bottom: 2px solid burlywood;
+    position: space-between;
+}
+
+.icons {
+    margin-right: 50px;
+}
+
+.home-button:hover {
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    
+  }
+
+.buttonAccount {
+    background-color: #FFFFF7;
+    
+    /*border: none;*/
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size:12px;
+    border-radius:5px;
+    padding: 10px 10px;
+    text-align: center;
+    margin:auto;
+    width: 90%;
+    border-bottom: 2px solid burlywood; 
+    
+   
+  }
+  .buttonAccount:hover {
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
+  }
+

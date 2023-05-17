@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import io from 'socket.io-client';
 import "./style.css"
+import { Search } from "../search/Search"
+import { Link } from 'react-router-dom';
 
-function Canva() {
+
+function Canva(props) {
+
+    const [drawing, setDrawing] = useState(false)
+    const [erase, setErase] = useState(false)
 
     useEffect(() => {
         let mouse = {
@@ -17,11 +23,17 @@ function Canva() {
         const context = canvas.getContext('2d');
         const width = window.innerWidth;
         const height = window.innerHeight;
-    
-    
-    
-        canvas.width =  window.innerWidth * 0.7;
-        canvas.height = window.innerHeight * 0.7;
+            
+       
+
+        canvas.width =  canvas.parentNode.clientWidth;
+        canvas.height = canvas.parentNode.clientHeight;
+        
+        context.font = '50px Playfair Display, serif';
+        context.fillStyle = 'black';
+        context.textAlign = 'center';
+        context.fillText('CANVAS', canvas.width/2, 50);
+        
         
         // Socket IO
         const socketClient = io("http://localhost:3000/");
@@ -36,10 +48,9 @@ function Canva() {
             mouse.click = false;
         })
     
-        
         canvas.addEventListener('mousemove', (e) => { // cuando mueve el mouse
             mouse.pos.x = e.clientX / width;
-            mouse.pos.y = e.clientY / height;
+            mouse.pos.y = e.clientY / height + 0.0008;
             mouse.move = true;
             console.log(mouse);
         })
@@ -52,12 +63,27 @@ function Canva() {
             context.lineTo(line[1].x *width, line[1].y * height);
             context.stroke();
         });
+
+
+        socketClient.on('erase_line', data => {
+            const line = data.line;
+            context.beginPath();
+            context.lineWith = 2; //ancho linea
+            const canvasWidth = canvas.width;
+            const canvasHeight = canvas.height;
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+        });
     
         function mainLoop(){
             // primera vez no entra
-            if (mouse.click && mouse.move && mouse.pos_prev){
+            if (mouse.click && mouse.move && mouse.pos_prev && drawing){
                     socketClient.emit("draw_line", {line: [mouse.pos, mouse.pos_prev] } ) //primer pos => posicion previa / seguda => pos actual
                     mouse.move = false;
+            }
+            if (erase) {
+                socketClient.emit("erase_line", {line: [mouse.pos, mouse.pos_prev] } ) 
+                setErase(false)
+
             }
             // primera vez obtiene posicion para eventualmente enviarla con el if anterior al servidor
             mouse.pos_prev = {x: mouse.pos.x, y:mouse.pos.y};
@@ -65,9 +91,49 @@ function Canva() {
             
         }
         mainLoop();
-    },[]);
+    },[drawing,erase]);
 
-    return <canvas id="drawing"> </canvas>;
+
+    const handleClickDraw = () => {
+        setErase(false)
+        setDrawing(!drawing)
+    }
+
+    const handleClickErase= () => {
+        setErase(true)
+    }
+
+    return(
+    <div className='grid-container'>
+        <Search />
+        <div className="canvasContainer"> 
+            <canvas id="drawing" className="canvas"></canvas> 
+        </div> 
+        <div className="mainHome">
+        <br/>
+        <h2> Life-Board </h2>
+            
+            <button className="home-button" onClick={handleClickDraw}>
+            
+                <span className="material-symbols-outlined icons">brush</span>
+                <span className="button-text">Draw</span>
+
+            </button>
+            <button className="home-button" onClick={handleClickErase} >
+                
+                <span className="material-symbols-outlined icons">backspace</span>
+                <span className="button-text-Errase">Erase</span></button>
+            <br/>
+            <div className="buttonAccount"><span className="material-symbols-outlined">account_circle</span>{props.user}</div> 
+        </div> 
+        
+        <div className="mainNote">
+            <h2>My Notes </h2>
+            <div className='myPersonalNotes'></div>
+            
+        </div>
+        </div>  
+    );
 }
 
 export { Canva };

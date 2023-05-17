@@ -1,13 +1,55 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+
 }
+
+.canvasContainer {
+  grid-area: canvas;
+  
+  /*background-color: greenyellow;*/
+  /* width: 1000px;
+  height: 1000px; */
+ 
+}
+
+.mainHome {
+  grid-area: mainHome;
+  background-color: white;
+}
+
+.mainNote{
+  grid-area: mainNote;
+  background-color: #CADBE3; 
+  font-family: 'Bebas Neue, sans-serif';
+  
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header mainHome' 
+    'canvas canvas mainHome'
+    'canvas canvas mainNote'
+    'canvas canvas mainNote';
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 25px 1fr 1fr 1fr; 
+  gap: 2%;
+  height: 100vh;  
+  padding: 0.4% 0.4%;
+}
+
+
+
