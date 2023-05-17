@@ -14,7 +14,7 @@ export const msalConfig = {
    auth: {
        clientId: "616f4432-d1ca-448e-b1b1-22e4c2d6b0cf",
        authority: "https://login.microsoftonline.com/d703873f-8a48-4d00-b3ff-701ce6bfb4bf",
-       redirectUri: "patacon-ten.vercel.app"
+       redirectUri: "https://patacon-ten.vercel.app"
    },
    cache: {
        cacheLocation: "sessionStorage", // This configures where your cache will be stored
