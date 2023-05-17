@@ -1,7 +1,8 @@
 
 
 .note{
-    background-color: #FEFAB9;
+    align-self: center;
+    background-color: #CADBE3;
     /*CADBE3*/
     margin-bottom: 10px;
     border-radius: 10px;
@@ -32,13 +33,15 @@
 }
 
 .container {
-    max-width: 1500px;
-    margin-right: auto;
-    margin-left: auto;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin-left: 860px;
     padding-left: 15 px;
     padding-right: 15 px;
     position: absolute;
-    top: 20%;
+    top: 85%;
 }
 
 /* CSS */
@@ -58,7 +61,6 @@ button {
   line-height: 24px;
   max-width: 100%;
   padding: 0 25px;
-  position: relative;
   text-align: center;
   text-decoration: none;
   user-select: none;
