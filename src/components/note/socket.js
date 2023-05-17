@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 //el servidor esta en el localhost entonces no es necesario escribir la direccion 
 //funcion conexion backend
-const socket = io("http://localhost:9001/"); // puede enviar o escuchar eventos 
+const socket = io("http://172.177.175.180:9001/"); // puede enviar o escuchar eventos 
 //console.log(socket);
 
 
