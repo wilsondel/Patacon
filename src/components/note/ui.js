@@ -10,6 +10,8 @@ const description = document.querySelector("#description")
 
 let savedId = "";
 
+const colors = ['#FEFAB9','#E0BAB9','#EAE2D7','#CCDCE2','#D2E1D0'];
+
 const noteUI = note => {
     const div = document.createElement('div')
     div.innerHTML = ` 
@@ -23,34 +25,47 @@ const noteUI = note => {
                 <span class="material-symbols-outlined update" data-id="${note._id}" > edit</span>
                 <span class="material-symbols-outlined delete" data-id="${note._id}" >delete</span>
             </div>
-            
+            <div class ="button-container">
+            <button class ="btn-color"> <img src="color.png" alt="botonColor"></button>
+            <button class ="btn-move-hand"> <img src="move.png" alt="botonMove"> </button>
+            </div>
         </div>
+        <button class ="btn-stop-hand"> Stop note </button>
     `
     const btnDelete = div.querySelector('.delete');
     const btnUpdate = div.querySelector('.update');
     const btnHeart = div.querySelector('#heart');
     
+    const btnColor = div.querySelector('.btn-color');
     
     
+    const noteMove = div.querySelector('.note');
+    
+
     btnDelete.addEventListener('click', e => deleteNote(btnDelete.dataset.id))
     btnUpdate.addEventListener('click', e => getNoteById(btnUpdate.dataset.id))
     btnHeart.addEventListener('click', e => btnHeart.style.color = 'red')
+    btnColor.addEventListener('click', e => noteMove.style.background = getNextColor())
     
-    const noteMove = div.querySelector('.note');
+    const noteDescription = div.querySelector('.note');
+    const btnMoveHand = div.querySelector('.btn-move-hand');
+    const btnStopHand = div.querySelector('.btn-stop-hand');
 
-    noteMove.onclick= function(event) {
+    btnMoveHand.addEventListener('click', e => {
+
+    noteDescription.onmousedown= function(event) {
         // (1) preparar para mover: hacerlo absoluto y ponerlo sobre todo con el z-index
-        noteMove.style.position = 'absolute';
-        noteMove.style.zIndex = 1000;
+        noteDescription.style.position = 'absolute';
+        noteDescription.style.zIndex = 1000;
       
         // quitar cualquier padre actual y moverlo directamente a body
         // para posicionarlo relativo al body
-        document.body.append(noteMove);
+        document.body.append(noteDescription);
       
         // centrar la pelota en las coordenadas (pageX, pageY)
         function moveAt(pageX, pageY) {
-          noteMove.style.left = pageX - noteMove.offsetWidth / 2 + 'px';
-          noteMove.style.top = pageY - noteMove.offsetHeight / 2 + 'px';
+          noteDescription.style.left = pageX - noteDescription.offsetWidth / 2 + 'px';
+          noteDescription.style.top = pageY - noteDescription.offsetHeight / 2 + 'px';
         }
       
         // mover nuestra pelota posicionada absolutamente bajo el puntero
@@ -64,22 +79,36 @@ const noteUI = note => {
         document.addEventListener('mousemove', onMouseMove);
       
         // (3) soltar la pelota, quitar cualquier manejador de eventos innecesario
-        noteMove.onmouseup = function() {
+        noteDescription.onmouseup = function() {
           document.removeEventListener('mousemove', onMouseMove);
-          noteMove.onmouseup = null;
+          noteDescription.onmouseup = null;
         };
       
       };
 
 
-      noteMove.ondragstart = function() {
+      noteDescription.ondragstart = function() {
         return false;
       };
+    })
+
+
+    btnStopHand.addEventListener('click', e => {
+
+        noteDescription.onmousedown= function(event) {};
+          noteDescription.ondragstart = function() {};
+        })
 
     return div
 } 
 
 
+let currentIndex = 0;
+const getNextColor = () => {
+    const color = colors[currentIndex];
+    currentIndex = (currentIndex + 1) % colors.length; // Actualizar el índice
+    return color;
+  };
 
 //const [searchText,setSearchText] = useState('');
 

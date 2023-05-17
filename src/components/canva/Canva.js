@@ -50,7 +50,7 @@ function Canva(props) {
     
         canvas.addEventListener('mousemove', (e) => { // cuando mueve el mouse
             mouse.pos.x = e.clientX / width;
-            mouse.pos.y = e.clientY / height;
+            mouse.pos.y = e.clientY / height + 0.0008;
             mouse.move = true;
             console.log(mouse);
         })
